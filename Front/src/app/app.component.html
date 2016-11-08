@@ -1,0 +1,19 @@
+<div *ngIf="selectedClient">
+	<app-form [client]="selectedClient" (emitter)="save($event)"></app-form>
+</div>
+
+<form *ngIf='clients' >
+	<ul>
+		<li *ngFor="let client of clients" >Id: {{client.id}}
+			<ul>
+				<li>Name: {{client.name}}</li>
+				<li>Address: {{client.address}}</li>
+				<li><button (click)="onClick(client)">Pick</button></li>
+			</ul>
+		</li>
+	</ul>
+</form>
+
+<div *ngIf='!clients'>
+	No clients
+</div>
